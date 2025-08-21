@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kattali Textile Ltd.</title>
+  <meta name="description" content="Kattali Textile Ltd – Sustainable B2B Textile Manufacturing">
+  <meta name="keywords" content="Textile, Bangladesh, Sustainable, Corporate, B2B, Fabric">
+  <meta property="og:title" content="Kattali Textile Ltd.">
+  <meta property="og:image" content="/images/og-image.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="style/main.css">
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    nav { position: sticky; top: 0; transition: top 0.3s; }
+    nav.hide { top: -80px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <img src="/images/logo.png" alt="Kattali Textile Logo">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="sustainability.html">Sustainability</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero reveal">
+    <h1>Welcome to Kattali Textile Ltd.</h1>
+    <p>Leading sustainable B2B textile manufacturing in Bangladesh.</p>
+  </section>
+
+  <script src="scripts/main.js" defer></script>
+  <script id="KTL_SCROLL_REVEAL_SNIPPET">
+  (function(){
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      const sections = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.2 });
+      sections.forEach(sec => observer.observe(sec));
+
+      const nav = document.querySelector('nav');
+      if(nav){
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+          const current = window.scrollY;
+          if(current > lastScroll) nav.classList.add('hide');
+          else nav.classList.remove('hide');
+          lastScroll = current;
+        });
+      }
+    }
+  })();
+  </script>
+</body>
+</html>
