@@ -27,3 +27,7 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npx http-server ./ --port 5000 --host 0.0.0.0"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
