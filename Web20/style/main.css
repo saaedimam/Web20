@@ -1,17 +1,21 @@
+
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   background: #f9f9f9;
-  color: #222;
+  color: #333;
 }
 
 nav {
-  background: #fff;
+  background: #f4f4f4;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  transition: background-color 0.3s ease-in-out;
 }
 
 nav ul {
@@ -23,14 +27,32 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #222;
+  color: #555;
   font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #0066cc;
 }
 
 section {
   padding: 6rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+section.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
 }
 
 button, a.button {
@@ -38,8 +60,24 @@ button, a.button {
   background: #0ea5e9;
   color: #fff;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s ease-in-out;
 }
 
-button:hover, a.button:hover { background: #0284c7; }
+button:hover, a.button:hover { 
+  background: #0284c7; 
+}
+
+.hero img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
