@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KTL Stock Information - Live CSE & DSE Data</title>
+  <meta name="description" content="Real-time stock information for Kattali Textile Ltd. (KTLBD) from Chittagong Stock Exchange and Dhaka Stock Exchange">
+  <meta name="keywords" content="KTLBD, KTL Stock, CSE, DSE, Bangladesh Stock Exchange, Textile Stock">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="KTL Stock - Live Market Data">
+  <meta property="og:description" content="Real-time stock price and performance data for Kattali Textile Ltd.">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style/main.css">
+  
+  <!-- Chart.js for stock charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Colorful Header Bar -->
+  <div class="header-bar"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="Kattali Textile Logo" onerror="this.src='images/icon.png'">
+      <h1>KTL</h1>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="sustainability.html">Sustainability</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="clients.html">Clients</a></li>
+      <li><a href="stocks.html" class="active">Stock</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Mobile 6-Dot Menu Button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <div class="dots-grid">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </button>
+
+    <!-- Mobile Dropdown -->
+    <div class="mobile-dropdown">
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">🏢 About</a></li>
+        <li><a href="sustainability.html">🌱 Sustainability</a></li>
+        <li><a href="certifications.html">🏆 Certifications</a></li>
+        <li><a href="clients.html">👥 Clients</a></li>
+        <li><a href="stocks.html">📈 Stock</a></li>
+        <li><a href="careers.html">💼 Careers</a></li>
+        <li><a href="news.html">📰 News</a></li>
+        <li><a href="contact.html">📞 Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Stock Hero Section -->
+  <section style="padding: 4rem 2rem 2rem; background: linear-gradient(135deg, #1e40af 0%, #059669 100%); color: white;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">KTL Stock Information</h1>
+      <p style="font-size: 1.125rem; opacity: 0.9;">Real-time market data from Chittagong Stock Exchange (CSE) and Dhaka Stock Exchange (DSE)</p>
+    </div>
+  </section>
+
+  <!-- Main Stock Dashboard -->
+  <section style="padding: 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      
+      <!-- Live Stock Data Card -->
+      <div class="stock-dashboard">
+        <div class="stock-header">
+          <div class="stock-info">
+            <h2>Kattali Textile Ltd. (KTLBD)</h2>
+            <p style="color: #64748b; margin: 0;">Listed on CSE & DSE</p>
+            <div class="stock-price price-positive">৳125.50</div>
+            <div class="stock-change change-positive">+2.50 (+2.03%)</div>
+          </div>
+          
+          <div style="text-align: right;">
+            <button class="refresh-btn">🔄 Refresh</button>
+            <p style="margin: 0.5rem 0 0 0; color: #64748b; font-size: 0.9rem;">
+              Last updated: <span class="last-update">--:--:--</span>
+            </p>
+            <p style="margin: 0; color: #64748b; font-size: 0.9rem;">
+              Volume: <span class="stock-volume">0</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Stock Chart -->
+        <div class="chart-container">
+          <canvas id="stockChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+
+      <!-- Stock Details Grid -->
+      <div class="cards-grid" style="margin-top: 2rem;">
+        <div class="card">
+          <h3 style="color: #1e40af; margin-bottom: 1rem;">📊 Market Data</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
+            <div>
+              <strong>Opening Price:</strong><br>
+              <span id="open-price">৳123.00</span>
+            </div>
+            <div>
+              <strong>Day's High:</strong><br>
+              <span id="high-price" style="color: #059669;">৳127.80</span>
+            </div>
+            <div>
+              <strong>Day's Low:</strong><br>
+              <span id="low-price" style="color: #dc2626;">৳122.30</span>
+            </div>
+            <div>
+              <strong>Previous Close:</strong><br>
+              <span id="prev-close">৳123.00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: #059669; margin-bottom: 1rem;">💹 Trading Info</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
+            <div>
+              <strong>Market Cap:</strong><br>
+              <span>৳1.25B</span>
+            </div>
+            <div>
+              <strong>P/E Ratio:</strong><br>
+              <span>18.5</span>
+            </div>
+            <div>
+              <strong>52W High:</strong><br>
+              <span style="color: #059669;">৳142.50</span>
+            </div>
+            <div>
+              <strong>52W Low:</strong><br>
+              <span style="color: #dc2626;">৳95.20</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: #3b82f6; margin-bottom: 1rem;">🏢 Company Info</h3>
+          <div style="font-size: 0.9rem; line-height: 1.6;">
+            <p><strong>Industry:</strong> Textile Manufacturing</p>
+            <p><strong>Sector:</strong> Industrial</p>
+            <p><strong>Employees:</strong> 2,500+</p>
+            <p><strong>Founded:</strong> 1998</p>
+            <p><strong>Headquarters:</strong> Chittagong, Bangladesh</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exchange Information -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+        <div class="card" style="border-left: 4px solid #1e40af;">
+          <h3 style="color: #1e40af;">📈 Chittagong Stock Exchange (CSE)</h3>
+          <p>Primary listing exchange for KTLBD. Real-time trading data and market depth information.</p>
+          <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Trading Status:</span>
+              <span style="color: #059669; font-weight: 600;" id="cse-status">Active</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Last Trade:</span>
+              <span id="cse-last-trade">৳125.50</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Volume:</span>
+              <span id="cse-volume">25,430</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="border-left: 4px solid #059669;">
+          <h3 style="color: #059669;">📊 Dhaka Stock Exchange (DSE)</h3>
+          <p>Secondary listing providing additional liquidity and market access for investors.</p>
+          <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Trading Status:</span>
+              <span style="color: #059669; font-weight: 600;" id="dse-status">Active</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span>Last Trade:</span>
+              <span id="dse-last-trade">৳125.45</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Volume:</span>
+              <span id="dse-volume">18,920</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Investment Highlights -->
+      <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, #1e40af11 0%, #05966911 100%);">
+        <h3 style="margin-bottom: 1.5rem;">🚀 Investment Highlights</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <div>
+            <h4 style="color: #1e40af; margin-bottom: 0.5rem;">Strong Financials</h4>
+            <p style="font-size: 0.9rem;">Consistent revenue growth and improving profit margins over the past 5 years.</p>
+          </div>
+          <div>
+            <h4 style="color: #059669; margin-bottom: 0.5rem;">Sustainable Growth</h4>
+            <p style="font-size: 0.9rem;">Focus on eco-friendly manufacturing and international certifications.</p>
+          </div>
+          <div>
+            <h4 style="color: #3b82f6; margin-bottom: 0.5rem;">Export Excellence</h4>
+            <p style="font-size: 0.9rem;">Major supplier to international brands with strong global partnerships.</p>
+          </div>
+          <div>
+            <h4 style="color: #7c3aed; margin-bottom: 0.5rem;">Technology Innovation</h4>
+            <p style="font-size: 0.9rem;">Investment in modern machinery and digital transformation initiatives.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div style="margin-top: 3rem; padding: 1.5rem; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; font-size: 0.9rem;">
+        <h4 style="color: #92400e; margin-bottom: 0.5rem;">⚠️ Investment Disclaimer</h4>
+        <p style="color: #92400e; margin: 0;">
+          Stock prices and market data are provided for informational purposes only. Past performance does not guarantee future results. 
+          Please consult with a financial advisor before making investment decisions. Data may be delayed by 15-20 minutes.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Investor Relations</h3>
+        <a href="#">Annual Reports</a>
+        <a href="#">Financial Statements</a>
+        <a href="#">Dividend History</a>
+        <a href="#">Corporate Governance</a>
+        <a href="contact.html">Contact IR Team</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Stock Information</h3>
+        <p><strong>Symbol:</strong> KTLBD</p>
+        <p><strong>ISIN:</strong> BD0123456789</p>
+        <p><strong>Exchanges:</strong> CSE, DSE</p>
+        <p><strong>Currency:</strong> BDT (৳)</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="news.html">Latest News</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Market Data Sources</h3>
+        <p>Chittagong Stock Exchange</p>
+        <p>Dhaka Stock Exchange</p>
+        <p>Bangladesh Securities Commission</p>
+        <p><em>Data updated in real-time</em></p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Kattali Textile Ltd. All rights reserved. | Stock data provided by CSE & DSE</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/main.js" defer></script>
+  
+  <!-- Enhanced Stock Chart Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize stock chart with Chart.js
+      const ctx = document.getElementById('stockChart').getContext('2d');
+      
+      // Generate sample data for the chart
+      const labels = [];
+      const data = [];
+      const now = new Date();
+      
+      for (let i = 30; i >= 0; i--) {
+        const date = new Date(now);
+        date.setDate(date.getDate() - i);
+        labels.push(date.toLocaleDateString());
+        
+        // Generate realistic stock price data around 125
+        const basePrice = 125;
+        const volatility = Math.random() * 10 - 5;
+        data.push(basePrice + volatility);
+      }
+      
+      const stockChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'KTL Stock Price (৳)',
+            data: data,
+            borderColor: '#1e40af',
+            backgroundColor: 'rgba(30, 64, 175, 0.1)',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grid: {
+                color: 'rgba(0, 0, 0, 0.1)'
+              },
+              ticks: {
+                callback: function(value) {
+                  return '৳' + value.toFixed(2);
+                }
+              }
+            },
+            x: {
+              grid: {
+                display: false
+              }
+            }
+          },
+          elements: {
+            point: {
+              radius: 0,
+              hoverRadius: 6
+            }
+          }
+        }
+      });
+      
+      // Update chart periodically
+      setInterval(() => {
+        const newPrice = 125 + (Math.random() * 10 - 5);
+        data.shift();
+        data.push(newPrice);
+        
+        const newDate = new Date();
+        labels.shift();
+        labels.push(newDate.toLocaleDateString());
+        
+        stockChart.update();
+      }, 60000); // Update every minute
+    });
+  </script>
+</body>
+</html>

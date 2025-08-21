@@ -1,1 +1,281 @@
-<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Contact</title></head><body></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact KTL - Get in Touch with Kattali Textile Ltd.</title>
+  <meta name="description" content="Contact Kattali Textile Ltd. for B2B textile manufacturing inquiries, quotes, and partnership opportunities.">
+  
+  <link rel="icon" type="image/png" href="/images/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/main.css">
+  
+  <style>
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    .contact-info {
+      background: linear-gradient(135deg, #1e40af 0%, #059669 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      height: fit-content;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-item-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      font-size: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-bar"></div>
+
+  <nav>
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="Kattali Textile Logo" onerror="this.src='images/icon.png'">
+      <h1>KTL</h1>
+    </div>
+
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="sustainability.html">Sustainability</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="clients.html">Clients</a></li>
+      <li><a href="stocks.html">Stock</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <div class="dots-grid">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </button>
+
+    <div class="mobile-dropdown">
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">🏢 About</a></li>
+        <li><a href="sustainability.html">🌱 Sustainability</a></li>
+        <li><a href="certifications.html">🏆 Certifications</a></li>
+        <li><a href="clients.html">👥 Clients</a></li>
+        <li><a href="stocks.html">📈 Stock</a></li>
+        <li><a href="careers.html">💼 Careers</a></li>
+        <li><a href="news.html">📰 News</a></li>
+        <li><a href="contact.html">📞 Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section style="padding: 4rem 2rem 2rem; background: linear-gradient(135deg, #1e40af 0%, #059669 100%); color: white;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Contact Us</h1>
+      <p style="font-size: 1.125rem; opacity: 0.9;">Get in touch for B2B textile manufacturing solutions</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div style="display: grid; grid-template-columns: 1fr 400px; gap: 3rem; align-items: start;">
+      <div class="contact-form">
+        <h2 style="margin-bottom: 1.5rem; color: #1e293b;">Send Us a Message</h2>
+        
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="company">Company Name *</label>
+            <input type="text" id="company" name="company" required>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          
+          <div class="form-group">
+            <label for="inquiryType">Inquiry Type *</label>
+            <select id="inquiryType" name="inquiryType" required>
+              <option value="">Select inquiry type...</option>
+              <option value="bulk-order">Bulk Order Quote</option>
+              <option value="partnership">Partnership Opportunity</option>
+              <option value="custom-manufacturing">Custom Manufacturing</option>
+              <option value="investor-relations">Investor Relations</option>
+              <option value="sustainability">Sustainability Information</option>
+              <option value="general">General Inquiry</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Please provide details about your requirements, including quantity, specifications, timeline, etc."></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+            Send Message
+          </button>
+        </form>
+      </div>
+      
+      <div class="contact-info">
+        <h3 style="margin-bottom: 2rem;">Get in Touch</h3>
+        
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <strong>Head Office</strong><br>
+            Kattali Industrial Area<br>
+            Chittagong-4000, Bangladesh
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <strong>Phone</strong><br>
+            +880-31-XXXXXX<br>
+            +880-31-YYYYYY
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <strong>Email</strong><br>
+            info@kattalitextile.com<br>
+            sales@kattalitextile.com
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-item-icon">⏰</div>
+          <div>
+            <strong>Business Hours</strong><br>
+            Mon-Fri: 9:00 AM - 6:00 PM<br>
+            Sat: 9:00 AM - 2:00 PM
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+          <h4>Investor Relations</h4>
+          <p style="margin: 0.5rem 0;">For stock-related inquiries:</p>
+          <p style="margin: 0;"><strong>ir@kattalitextile.com</strong></p>
+          <a href="stocks.html" style="color: white; text-decoration: underline;">View Stock Information →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Kattali Textile Ltd.</h3>
+        <p>Leading sustainable B2B textile manufacturing in Bangladesh since 1998.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Information</h3>
+        <p>Email: info@kattalitextile.com</p>
+        <p>Phone: +880-31-XXXXXX</p>
+        <p>Chittagong, Bangladesh</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Kattali Textile Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js" defer></script>
+  
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Simulate form submission
+      const submitBtn = this.querySelector('button[type="submit"]');
+      submitBtn.innerHTML = '<span class="loading"></span> Sending...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        alert('Thank you for your message! We will get back to you within 24 hours.');
+        this.reset();
+        submitBtn.innerHTML = 'Send Message';
+        submitBtn.disabled = false;
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

@@ -1,66 +1,232 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kattali Textile Ltd.</title>
-  <meta name="description" content="Kattali Textile Ltd – Sustainable B2B Textile Manufacturing">
-  <meta name="keywords" content="Textile, Bangladesh, Sustainable, Corporate, B2B, Fabric">
-  <meta property="og:title" content="Kattali Textile Ltd.">
+  <title>Kattali Textile Ltd. - Leading B2B Textile Manufacturing</title>
+  <meta name="description" content="Kattali Textile Ltd – Sustainable B2B Textile Manufacturing in Bangladesh. Leading the industry with innovative, eco-friendly textile solutions.">
+  <meta name="keywords" content="Textile, Bangladesh, Sustainable, Corporate, B2B, Fabric, Manufacturing, KTL, Kattali">
+  <meta name="author" content="Kattali Textile Ltd.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Kattali Textile Ltd. - Leading B2B Textile Manufacturing">
+  <meta property="og:description" content="Sustainable B2B textile manufacturing solutions in Bangladesh">
   <meta property="og:image" content="/images/og-image.png">
+  <meta property="og:url" content="https://kattalitextile.com">
   <meta property="og:type" content="website">
+  
+  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kattali Textile Ltd.">
+  <meta name="twitter:description" content="Sustainable B2B textile manufacturing solutions">
+  <meta name="twitter:image" content="/images/og-image.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/icon.png">
+  <link rel="apple-touch-icon" href="/images/icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="style/main.css">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
   <style>
+    /* Critical CSS for immediate rendering */
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; transition: none !important; }
       .reveal { opacity: 1 !important; transform: none !important; }
     }
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    nav { position: sticky; top: 0; transition: top 0.3s; }
-    nav.hide { top: -80px; }
   </style>
 </head>
 <body>
+  <!-- Colorful Header Bar -->
+  <div class="header-bar"></div>
+
+  <!-- Navigation -->
   <nav>
-    <img src="/images/logo.png" alt="Kattali Textile Logo">
-    <ul>
-      <li><a href="index.html">Home</a></li>
+    <div class="nav-brand">
+      <img src="images/logo.png" alt="Kattali Textile Logo" onerror="this.src='images/icon.png'">
+      <h1>KTL</h1>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-menu">
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="sustainability.html">Sustainability</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="clients.html">Clients</a></li>
+      <li><a href="stocks.html">Stock</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="news.html">News</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+
+    <!-- Mobile 6-Dot Menu Button -->
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <div class="dots-grid">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </button>
+
+    <!-- Mobile Dropdown -->
+    <div class="mobile-dropdown">
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">🏢 About</a></li>
+        <li><a href="sustainability.html">🌱 Sustainability</a></li>
+        <li><a href="certifications.html">🏆 Certifications</a></li>
+        <li><a href="clients.html">👥 Clients</a></li>
+        <li><a href="stocks.html">📈 Stock</a></li>
+        <li><a href="careers.html">💼 Careers</a></li>
+        <li><a href="news.html">📰 News</a></li>
+        <li><a href="contact.html">📞 Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <section class="hero reveal">
-    <h1>Welcome to Kattali Textile Ltd.</h1>
-    <p>Leading sustainable B2B textile manufacturing in Bangladesh.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Leading Textile Manufacturing in Bangladesh</h1>
+      <p>Sustainable, innovative, and reliable B2B textile solutions for global markets. Quality fabrics that meet international standards.</p>
+      <div class="cta-buttons">
+        <a href="about.html" class="btn btn-primary">Learn More</a>
+        <a href="contact.html" class="btn btn-secondary">Get Quote</a>
+      </div>
+    </div>
   </section>
 
-  <script src="scripts/main.js" defer></script>
-  <script id="KTL_SCROLL_REVEAL_SNIPPET">
-  (function(){
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReduced) {
-      const sections = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-      }, { threshold: 0.2 });
-      sections.forEach(sec => observer.observe(sec));
+  <!-- Features Section -->
+  <section class="reveal">
+    <div class="section-header">
+      <h2>Why Choose Kattali Textile</h2>
+      <p>We combine traditional craftsmanship with modern technology to deliver exceptional textile products</p>
+    </div>
+    
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h3>Sustainable Manufacturing</h3>
+        <p>Eco-friendly processes and materials that minimize environmental impact while maintaining quality standards.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🏆</div>
+        <h3>International Certifications</h3>
+        <p>Certified by GOTS, OEKO-TEX, and ISO standards ensuring quality, safety, and sustainability.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Innovation & Technology</h3>
+        <p>State-of-the-art machinery and innovative techniques for superior fabric quality and efficiency.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Global Partnerships</h3>
+        <p>Trusted supplier to leading international brands with reliable delivery and consistent quality.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Stock Performance</h3>
+        <p>Publicly traded on CSE & DSE with strong financial performance. <a href="stocks.html">View live stock data</a></p>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">💼</div>
+        <h3>B2B Excellence</h3>
+        <p>Dedicated B2B solutions with custom manufacturing, bulk orders, and flexible payment terms.</p>
+      </div>
+    </div>
+  </section>
 
-      const nav = document.querySelector('nav');
-      if(nav){
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-          const current = window.scrollY;
-          if(current > lastScroll) nav.classList.add('hide');
-          else nav.classList.remove('hide');
-          lastScroll = current;
-        });
-      }
-    }
-  })();
-  </script>
+  <!-- Stats Section -->
+  <section class="reveal" style="background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+    <div class="section-header">
+      <h2>Our Impact</h2>
+      <p>Numbers that showcase our commitment to excellence and sustainability</p>
+    </div>
+    
+    <div class="cards-grid">
+      <div class="card" style="text-align: center; border: none; box-shadow: none;">
+        <h3 style="font-size: 3rem; color: #1e40af; margin-bottom: 0.5rem;">25+</h3>
+        <p style="font-size: 1.125rem; font-weight: 600; color: #1e293b;">Years Experience</p>
+      </div>
+      
+      <div class="card" style="text-align: center; border: none; box-shadow: none;">
+        <h3 style="font-size: 3rem; color: #059669; margin-bottom: 0.5rem;">500+</h3>
+        <p style="font-size: 1.125rem; font-weight: 600; color: #1e293b;">Global Clients</p>
+      </div>
+      
+      <div class="card" style="text-align: center; border: none; box-shadow: none;">
+        <h3 style="font-size: 3rem; color: #3b82f6; margin-bottom: 0.5rem;">50M+</h3>
+        <p style="font-size: 1.125rem; font-weight: 600; color: #1e293b;">Yards Produced</p>
+      </div>
+      
+      <div class="card" style="text-align: center; border: none; box-shadow: none;">
+        <h3 style="font-size: 3rem; color: #1e40af; margin-bottom: 0.5rem;">15</h3>
+        <p style="font-size: 1.125rem; font-weight: 600; color: #1e293b;">Certifications</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Kattali Textile Ltd.</h3>
+        <p>Leading sustainable B2B textile manufacturing in Bangladesh since 1998.</p>
+        <p style="margin-top: 1rem;"><strong>Stock Symbol:</strong> KTLBD</p>
+        <p><a href="stocks.html">View Live Stock Data →</a></p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="about.html">About Us</a>
+        <a href="sustainability.html">Sustainability</a>
+        <a href="certifications.html">Certifications</a>
+        <a href="clients.html">Our Clients</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Services</h3>
+        <a href="#">Custom Manufacturing</a>
+        <a href="#">Bulk Orders</a>
+        <a href="#">Quality Assurance</a>
+        <a href="#">Global Shipping</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <a href="contact.html">Get in Touch</a>
+        <a href="careers.html">Careers</a>
+        <a href="news.html">News & Updates</a>
+        <p style="margin-top: 1rem;">Email: info@kattalitextile.com</p>
+        <p>Phone: +880-2-XXXXXXX</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Kattali Textile Ltd. All rights reserved. | Made with ❤️ on Replit</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>
