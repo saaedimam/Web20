@@ -1,60 +1,28 @@
-
 {
-  "name": "Kattali Textile Ltd. - Corporate Website",
-  "short_name": "KTL Corporate",
-  "description": "Leading sustainable B2B textile manufacturing in Bangladesh. Stock symbol: KTLBD",
+  "name": "Kattali Textile Ltd",
+  "short_name": "KTL",
+  "description": "Leading B2B Textile Manufacturing in Bangladesh",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8fafc",
-  "theme_color": "#1e40af",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
   "orientation": "portrait-primary",
-  "scope": "/",
-  "lang": "en-US",
-  "categories": ["business", "finance", "productivity"],
   "icons": [
     {
       "src": "images/icon.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "images/icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "images/hero.jpg",
-      "sizes": "1280x720",
-      "type": "image/jpeg",
-      "label": "KTL Corporate Homepage"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Stock Data",
-      "short_name": "Stock",
-      "description": "View live KTL stock information",
-      "url": "/stocks.html",
-      "icons": [
-        {
-          "src": "images/icon.png",
-          "sizes": "96x96"
-        }
-      ]
-    },
-    {
-      "name": "Contact Us",
-      "short_name": "Contact",
-      "description": "Get in touch with KTL",
-      "url": "/contact.html",
-      "icons": [
-        {
-          "src": "images/icon.png",
-          "sizes": "96x96"
-        }
-      ]
-    }
-  ]
+  "categories": ["business", "manufacturing"],
+  "lang": "en-US",
+  "scope": "/",
+  "id": "kattalitextile"
 }

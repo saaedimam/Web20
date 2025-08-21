@@ -29,6 +29,69 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+[data-theme="dark"] {
+  --light-gray: #0f172a;
+  --medium-gray: #94a3b8;
+  --dark-gray: #f1f5f9;
+  --white: #1e293b;
+  --primary-blue: #60a5fa;
+  --secondary-blue: #334155;
+  --gradient-subtle: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--medium-gray);
+  border-radius: 25px;
+  width: 50px;
+  height: 28px;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+  margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-blue);
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--medium-gray);
+  top: 2px;
+  left: 2px;
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .theme-toggle::before {
+  transform: translateX(20px);
+  background: var(--accent-blue);
+}
+
+.theme-toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.theme-toggle .sun {
+  left: 6px;
+}
+
+.theme-toggle .moon {
+  right: 6px;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;

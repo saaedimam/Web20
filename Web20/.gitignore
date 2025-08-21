@@ -1,4 +1,16 @@
 # Logs
+
+node_modules/
+.DS_Store
+.vercel/
+.env
+.idea/
+*.iml
+out/
+dist/
+coverage/
+.vscode/
+
 logs
 *.log
 npm-debug.log*
