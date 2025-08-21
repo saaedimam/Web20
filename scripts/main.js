@@ -505,9 +505,63 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+// Contact Form Handling
+function initContactForm() {
+  const contactForm = document.querySelector('.contact-form');
+  if (!contactForm) return;
+  
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span class="loading"></span> Sending...';
+    submitBtn.disabled = true;
+    
+    // Simulate form submission (replace with actual endpoint)
+    setTimeout(() => {
+      // Show success message
+      const successMsg = document.createElement('div');
+      successMsg.style.cssText = `
+        background: var(--accent-green);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: 600;
+      `;
+      successMsg.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
+      
+      this.appendChild(successMsg);
+      this.reset();
+      
+      // Reset button
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+      
+      // Remove success message after 5 seconds
+      setTimeout(() => successMsg.remove(), 5000);
+      
+      console.log('📧 Contact form submitted:', data);
+    }, 2000);
+  });
+}
+
+// Initialize contact form when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  initContactForm();
+});
+
 // Export functions for external use
 window.KTL = {
   fetchStockData: typeof fetchStockData !== 'undefined' ? fetchStockData : null,
   formatCurrency,
-  formatDate
+  formatDate,
+  initContactForm
 };
