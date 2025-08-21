@@ -8,7 +8,7 @@ channel = "stable-25_05"
 run = ["sh", "-c", "Run the program"]
 
 [workflows]
-runButton = "Start Server"
+runButton = "Run"
 
 [[workflows.workflow]]
 name = "Start Server"
@@ -18,3 +18,12 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python -m http.server 5000 --bind 0.0.0.0"
+
+[[workflows.workflow]]
+name = "Run"
+author = 46678806
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx http-server ./ --port 5000 --host 0.0.0.0"
