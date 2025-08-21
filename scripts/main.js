@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('🏭 KTL Corporate Website Loaded');
   
   // Initialize all features
+  initDarkMode();
   initMobileMenu();
   initScrollAnimations();
   initSmoothScrolling();
@@ -19,6 +20,39 @@ document.addEventListener('DOMContentLoaded', function() {
     initStockDashboard();
   }
 });
+
+// Dark Mode Functionality
+function initDarkMode() {
+  const themeToggle = document.querySelector('.theme-toggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  // Load saved theme or use system preference
+  const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Add transition effect
+      document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+      setTimeout(() => {
+        document.body.style.transition = '';
+      }, 300);
+    });
+  }
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    }
+  });
+}
 
 // Mobile Menu Functionality
 function initMobileMenu() {
@@ -447,10 +481,14 @@ function formatDate(date) {
 }
 
 // Performance monitoring
-if ('performance' in window && 'measure' in window.performance) {
+if ('performance' in window && window.performance.timing) {
   window.addEventListener('load', () => {
-    const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
-    console.log(`⚡ Page loaded in ${loadTime}ms`);
+    setTimeout(() => {
+      const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
+      if (loadTime > 0) {
+        console.log(`⚡ Page loaded in ${loadTime}ms`);
+      }
+    }, 100);
   });
 }
 

@@ -1,0 +1,8 @@
+
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" rx="8" fill="#0f172a"/>
+  <text x="15" y="28" font-family="Inter, sans-serif" font-weight="700" font-size="24" fill="#ffffff">KTL</text>
+  <circle cx="100" cy="20" r="8" fill="#3b82f6"/>
+  <rect x="85" y="15" width="2" height="10" fill="#059669"/>
+  <rect x="88" y="12" width="2" height="16" fill="#f59e0b"/>
+</svg>
