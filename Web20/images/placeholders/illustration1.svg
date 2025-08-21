@@ -1,0 +1,23 @@
+
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="250" fill="#f9f9f9"/>
+
+  <!-- Fabric roll -->
+  <rect x="50" y="60" width="120" height="80" rx="10" ry="10" fill="#d32f2f"/>
+  <rect x="40" y="50" width="140" height="100" rx="15" ry="15" fill="#f44336" opacity="0.6"/>
+
+  <!-- Woven pattern -->
+  <line x1="50" y1="60" x2="170" y2="140" stroke="#fff" stroke-width="2" stroke-dasharray="4 4"/>
+  <line x1="170" y1="60" x2="50" y2="140" stroke="#fff" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- Needle icon -->
+  <line x1="300" y1="80" x2="350" y2="120" stroke="#22272A" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="350" cy="120" r="6" fill="#22272A"/>
+  <line x1="300" y1="80" x2="320" y2="100" stroke="#00A3B4" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Logo text placeholder -->
+  <text x="200" y="220" font-family="Arial, sans-serif" font-size="22" fill="#22272A" text-anchor="middle">
+    Kattali Textile Ltd.
+  </text>
+</svg>

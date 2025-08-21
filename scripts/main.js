@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initScrollAnimations();
   initSmoothScrolling();
   initNavScroll();
+  initMicroInteractions();
+  initPageTransitions();
+  initTypingEffect();
   
   // Load page-specific features
   if (window.location.pathname.includes('stocks.html')) {
@@ -194,6 +197,155 @@ function initStockDashboard() {
       changeElement.textContent = `${sign}${data.change} (${sign}${data.changePercent}%)`;
       changeElement.className = `stock-change ${data.change >= 0 ? 'change-positive' : 'change-negative'}`;
     }
+
+
+// Modern Micro-Interactions
+function initMicroInteractions() {
+  // Add hover effects to buttons
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-2px)';
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+  
+  // Add ripple effect to cards
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      const ripple = document.createElement('div');
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        background: rgba(59, 130, 246, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+      `;
+      
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+}
+
+// Page Transitions
+function initPageTransitions() {
+  // Add CSS for page transitions
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes ripple {
+      to { transform: scale(4); opacity: 0; }
+    }
+    
+    .page-transition {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .stagger-animation {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-animation:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-animation:nth-child(3) { animation-delay: 0.3s; }
+    .stagger-animation:nth-child(4) { animation-delay: 0.4s; }
+    .stagger-animation:nth-child(5) { animation-delay: 0.5s; }
+    .stagger-animation:nth-child(6) { animation-delay: 0.6s; }
+  `;
+  document.head.appendChild(style);
+  
+  // Apply stagger animation to cards
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => card.classList.add('stagger-animation'));
+}
+
+// Typing Effect for Hero
+function initTypingEffect() {
+  const heroTitle = document.querySelector('.hero h1');
+  if (!heroTitle) return;
+  
+  const text = heroTitle.textContent;
+  const words = text.split(' ');
+  let currentWord = 0;
+  
+  function typeWords() {
+    if (currentWord < words.length) {
+      heroTitle.innerHTML = words.slice(0, currentWord + 1).join(' ') + 
+        '<span style="opacity: 0.7;">|</span>';
+      currentWord++;
+      setTimeout(typeWords, 200);
+    } else {
+      heroTitle.innerHTML = text; // Remove cursor
+    }
+  }
+  
+  // Only run on homepage
+  if (window.location.pathname === '/' || window.location.pathname.includes('index.html')) {
+    heroTitle.textContent = '';
+    setTimeout(typeWords, 1000);
+  }
+}
+
+// Enhanced Stock Dashboard with Real-time Features
+function initEnhancedStockDashboard() {
+  if (!document.querySelector('.stock-dashboard')) return;
+  
+  const socket = new WebSocket('wss://api.example.com/stock-feed'); // Replace with actual feed
+  
+  socket.onmessage = function(event) {
+    const stockData = JSON.parse(event.data);
+    if (stockData.symbol === 'KTLBD') {
+      updateStockDisplay(stockData);
+      addStockAlert(stockData);
+    }
+  };
+  
+  function addStockAlert(data) {
+    const changePercent = Math.abs(data.changePercent);
+    if (changePercent > 5) {
+      showNotification(`KTLBD ${data.change > 0 ? 'surged' : 'dropped'} ${changePercent.toFixed(2)}%`);
+    }
+  }
+  
+  function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background: var(--gradient-primary);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      z-index: 9999;
+      animation: slideInRight 0.3s ease-out;
+    `;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    setTimeout(() => notification.remove(), 5000);
+  }
+}
+
     
     if (volumeElement) {
       volumeElement.textContent = data.volume.toLocaleString();
