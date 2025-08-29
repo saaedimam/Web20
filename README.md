@@ -175,4 +175,4 @@ This project is proprietary to Kattali Textile Ltd. All rights reserved.
 
 ---
 
-*Built with ❤️ on Replit | © 2024 Kattali Textile Ltd.*
+*Built by stitchOS © 2024 Kattali Textile Ltd.*
